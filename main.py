@@ -11,19 +11,14 @@ app.secret_key = "any-string-you-want-just-keep-it-secret"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 Bootstrap(app)
 
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-@app.route("/input-image", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def input_image():
     if request.method == "POST":
         file = request.files.get("file")
         # for API
         response = predict_image(file)
         return f"{response}"
-    return render_template("img-input.html")
+    return render_template("index.html")
 
 
 

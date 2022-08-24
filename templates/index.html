@@ -1,211 +1,31 @@
-<!DOCTYPE html>
-<html>
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
 
-<!-- {% include "header.html" %} -->
+{% block title %}
+Test
+{% endblock %}
 
-<body>
+{% block content %}
+<div class="container">
+    <form action="{{ url_for('input_image') }}" method="post" enctype="multipart/form-data">
+        <h1>Upload your Image</h1>
+        <!-- <label for="file" class="custom-uploader">Upload Your File</label> -->
+        <input id="file" type="file" name="file" accept="image/*"><br>
+        <button type="submit" name="submit" class="btn btn-success" value="Upload File">
+            Upload File
+        </button>
 
-    <section id="navigation">
-        <!-- Nav Bar -->
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="">tidrael</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="post">My posts</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
+    </form>
+    <!-- <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;"></p>
+    <p><label for="file" style="cursor: pointer;">Upload Image</label></p>
+    <p><img id="output" width="200" /></p>
+    <input type="submit" value="Submit" />
 
-        </nav>
-
-    </section>
-
-    <section id="title">
-        <!-- Wrapper -->
-        <div class="wrapper">
-            <div class="container">
-                <img class="avatar" src="../static/images/avatar.jpg" alt="...">
-
-                <h1>Trieu Nguyen</h1>
-                <p>Deep Learning Engineer</p>
-                <!-- <a href="#" class="icon"><i class="fa-brands fa-square-twitter"></i> Twitter</a>
-                <a href="#" class="icon"><i class="fa-brands fa-linkedin"></i> Linkedin</a>
-                <a href="#" class="icon"><i class="fa-solid fa-envelope"></i> Facebook</a> -->
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- Trait -->
-    <section id="features" class="dark-container">
-        <div class="row">
-            <h2>Trait</h2>
-            <div class="col-lg-4 col-med-12">
-                <h3><i class="fa-solid fa-heart features-image"></i></h3>
-                <h3>High motivation</h3>
-                <p>Could self-learning with good English.</p>
-            </div>
-            <div class="col-lg-4 col-med-12">
-                <h3><i class="fa-solid fa-fire-flame-simple features-image"></i></h3>
-                <h3>High adaptability with passion in coding</h3>
-                <p>Can take in new domain with fast learning.</p>
-            </div>
-            <div class="col-lg-4 col-med-12">
-                <h3><i class="fa-solid fa-circle-check features-image"></i></h3>
-                <h3>High working resposibility</h3>
-                <p>Always try to finish work on time, can handle pressure</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="Skills" class="white-container">
-        <div class="row">
-            <div class="col-3 skill-text">
-                <h2>Skills</h2>
-            </div>
-            <div class="col-6 icon-container">
-                <img src="../static/images/python.png" class="skill-icon">
-                <img src="../static/images/pytorch-logo.png" class="skill-icon">
-                <img src="../static/images/hf.png" class="skill-icon">
-                <img src="../static/images/flask_icon.png" class="skill-icon">
-            </div>
-            <div class="col-3 sub-icon">
-                <img src="../static/images/HTML5-CSS3.png" class="small-icon"><br>
-                <img src="../static/images/tensorflow.jpg" class="small-icon">
-                <img src="../static/images/PostgreSQL.png" class="small-icon">
-            </div>
-        </div>
-        </div>
-    </section>
-
-    <!-- Project & Post -->
-
-    <section id="blogs" class="dark-container">
-        <div class="row">
-            <div class="col-8">
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <h2 class="testimonial-text">PyTorch, Image Classfication</h2>
-                            <img src="/static/images/dog-img.jpg" class="testimonial-image" alt="...">
-                            <a class="active" href="{{ url_for('input_image')}}"><em>Image Classfication with
-                                    DenseNet121 from
-                                    ImageNet database.</em></a>
-                        </div>
-                        <div class="carousel-item">
-                            <h2 class="testimonial-text">Deep Spectral Learning</h2>
-                            <img src="/static/images/lady-img.jpg" class="testimonial-image" alt="...">
-                            <em>Pytorch, UL Semantic Segmentation</em>
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-4">
-                <h2>Blogs and Posts</h2>
-            </div>
-        </div>
-
-
-
-    </section>
-
-    <!-- Education -->
-
-    <section id="education" class="white-container">
-        <div class="row">
-            <div class="col-xl-4 col-sm-12 education-text">
-                <h2>Education</h2>
-                <h2>& Working</h2>
-
-            </div>
-            <div class="col-xl-8 col-sm-12 education-content">
-                <div class="row education-content">
-                    <div class="col-4 education-text">
-                        <p>2016</p>
-                    </div>
-                    <div class="col-8 education-text">
-                        <p>Finish Medical Doctor Degree</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-4 education-text">
-                        <p>2016-2019</p>
-                    </div>
-                    <div class="col-8 education-text">
-                        <p>Self-learning in statics and R</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-4 education-text">
-                        <p>2019</p>
-                    </div>
-                    <div class="col-8 education-text">
-                        <p>Assisstant for 2 thesises in Medical</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-4 education-text">
-                        <p>2019-2021</p>
-                    </div>
-                    <div class="col-8 education-text">
-                        <p>Python programing, deep-learning (tensorflow)</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-4 education-text">
-                        <p>2022 until now</p>
-                    </div>
-                    <div class="col-8 education-text">
-                        <p>Deep learning (pytorch) in computer vision, intern at Neural2</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-4 education-text">
-                        <p>2016 until now</p>
-                    </div>
-                    <div class="col-8 education-text">
-                        <p>Cardiovascular Surgeon</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        </div>
-
-    </section>
-
-    <!-- Footer -->
-
-    <footer id="footer" class="color-container">
-        <i class="fa-brands fa-twitter icon"></i>
-        <i class="fa-brands fa-facebook icon"></i>
-        <i class="fa-brands fa-instagram icon"></i>
-        <i class="fa-solid fa-envelope icon"></i>
-        <br>
-        <p>© Copyright 2022 Tidrael</p>
-
-    </footer>
-
-
-</body>
-
-</html>
+    <script>
+        var loadFile = function (event) {
+            var image = document.getElementById('output');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script> -->
+</div>
+{% endblock %}
