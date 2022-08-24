@@ -1,13 +1,4 @@
-email-validator
 Flask-Bootstrap
-Flask-SQLAlchemy
-Flask-WTF
 mkl-service
-pandas
-Pillow
-WTForms
 gunicorn
-Flask_WTF
-WTForms
 Flask
-opencv_python
