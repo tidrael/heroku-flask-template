@@ -1,5 +1,4 @@
 from flask import Flask, flash, render_template, request, redirect
-from flask_bootstrap import Bootstrap
 from predict import predict_image
 
 UPLOAD_FOLDER = "./file/image-upload"
@@ -9,7 +8,6 @@ UPLOAD_FOLDER = "./file/image-upload"
 app = Flask(__name__)
 app.secret_key = "any-string-you-want-just-keep-it-secret"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-Bootstrap(app)
 
 @app.route("/", methods=["GET", "POST"])
 def input_image():
