@@ -1,14 +1,9 @@
 from flask import Flask, flash, render_template, request, redirect
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, FileField
 from flask_bootstrap import Bootstrap
 from predict import predict_image
 
 UPLOAD_FOLDER = "./file/image-upload"
 
-class ImageForm(FlaskForm):
-    image = FileField(label='Image input')
-    submit = SubmitField(label="Submit")
 
 
 app = Flask(__name__)
